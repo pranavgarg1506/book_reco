@@ -1,0 +1,26 @@
+<html>
+
+<head>
+<title> </title>
+</head>
+
+<body>
+	<h2> ADD BOOKS </h2>
+	<form method='POST' enctype="multipart/form-data">
+		BOOK NAME:- <input type='text' name='b_name'><br>
+		AUTHOR:- <input type='text' name='b_author'><br>
+		TYPE:- <input type='text' name='b_type'><br>
+		AVG_RATING:- <input type='number' name='avg_rating' step='0.1'><br>
+		Count:- <input type='number' name='b_count' step='1'><br>
+		Year:- <input type='number' name='b_year' step='1'><br>
+		<br><br><br><br><br><br>
+		CHOOSE PIC TO UPLOAD IN THE DATABASE<br>
+		<input type='file' name='upload1' value="CHOOSE PIC" required><br><br><br>
+
+		CHOOSE PDF TO UPLOAD IN THE DATABASE<br>
+		<input type='file' name='upload2' value="CHOOSE PDF" required><br><br><br>	
+		<input type='submit' value='SUBMIT' name='enter' formaction='/add_books_data'>
+	</form>
+</body>
+
+</html>

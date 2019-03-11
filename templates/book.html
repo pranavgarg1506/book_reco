@@ -1,0 +1,132 @@
+<html>
+
+<head>
+
+<title>
+</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{
+      margin:0px;
+      width:100%;
+	  background:#ADD8E6;
+}
+.header{
+        width:100%;
+		background:#483d8b;
+		height:auto;
+		position:fixed;
+		padding-bottom:20px;
+		
+}
+.container1{
+            width:80%;
+		   margin-left:8.5%;
+		   padding-top:20px;
+		   
+		   padding-left:20px;
+		   padding-right:20px;
+			
+}
+.logo{
+      float:left;
+	  font-size:35;
+	  color:white;	  
+}
+a{color:white; decoration:none;}
+#space{
+width:100%;
+height:80px;
+background:white;
+}
+
+.div1 {
+       float:left;
+       width:450px;
+       height:540px;
+       margin-left:30px;
+	   margin-top:30px;
+       border:3px  #73AD21;
+	   
+}
+
+.div2 {
+        border: 1px  red;
+		width:50%;
+		height:540px;
+		margin-left:40%;
+		padding-top:100px;
+		padding-left:10px;
+}
+.block{
+        border:1px  red;
+		width:350px;
+		margin-left:50px;
+		height:480px;
+		margin-top:25px;
+		background-color:pink;
+}
+button{
+		background-color: #4CAF50;
+		width:180px;	
+		margin-top:30px;
+		margin-left:30px;
+		height:40px;
+		font-size:17;
+		font-family:veranda;
+		
+}
+</style>
+
+
+</head>
+
+<body>
+	
+	<div class="header" >
+	    <div class="container1">
+
+			<div class='logo'>
+				Hii&nbsp;<font size='6'>{{u_name}}</font>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout" style="text-decoration:none"><font size='5'>Logout</font></a>
+			</div>
+		</div>
+	</div>
+	<div id="space"></div>
+	
+	
+	{% for result in results %}
+	<div class="div1">
+    	<div class="block">
+			<img src="/static/{{result[1]}}.jpg" alt="Mountain View" style="width:350px;height:480px;">
+		</div>
+	</div>
+
+	<div class="div2">
+		<h2> {{result[1]}} </h2> <h3> ( English, {{result[2]}} ) </h3>
+                <p><h3> <span style="color:#800000">{{result[3]}}&nbsp; </span></h3></p>
+				
+				<h4><span style="color:#800000">Rating</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:#cd8f3f">{{result[4]}}/5</span></h4>
+	
+	{% endfor %}
+
+
+	<form  method='POST'>
+	
+		RATING:- <input type='number' name='user_rating' step='0.1'><br><br>
+		{% for b in results %}
+		<input type='submit' value='SUBMIT' name='enter' formaction='/rate_update{{b[0]}}{{u_id}}{{u_name}}'>
+	`	<input type="submit" value="DOWNLOAD NOW" formaction='/download_file1{{b[0]}}'>
+		<input type="submit" value="READ NOW" formaction='/download_file2{{b[0]}}'>
+		{% endfor %}
+	</form>
+	</div>
+
+
+</body>
+
+</html>

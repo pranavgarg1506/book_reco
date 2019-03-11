@@ -1,0 +1,166 @@
+<html>
+
+<head> 
+<title> HOME </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{
+      margin:0px;
+      width:100%;
+	  background-color:white;
+}
+.header{
+        width:100%;
+		background:#483d8b;
+		height:auto;
+		position:fixed;
+		
+}
+.container1{
+            width:80%;
+		   margin-left:8.5%;
+		   padding-top:20px;
+			
+		   padding-left:20px;
+		   padding-right:20px;
+			
+}
+.logo{
+      float:left;
+	  font-size:35;
+	  color:white;	  
+}
+a{color:white; decoration:none;}
+.search{
+         margin-top:80px;
+		 margin-left:180px;
+		 padding-bottom:20px;
+		 width:800px;
+		 
+}
+input[type=textarea]{
+                     width:70%;
+					 height:40px;
+					 font-size:20;
+					 padding-right:20px;
+}
+input[type=submit]{
+                   width:15%;
+				   height:40px;
+				   font-size:18px;
+				   background:orange;
+				   color:white;
+}
+
+#space{
+width:100%;
+height:180px;
+background:white;
+}
+.container2{
+           width:1080px;
+		   margin:0 auto;
+		   background-color:white;
+		   height:1180px;
+		   color:#888551;
+		   
+}
+
+.part{
+      background:;
+	  height:auto;
+	  width:%;
+	  float:right;
+	  padding-bottom:30px;
+}
+.block{
+    background-color:#ffd700;
+	float:left;
+    width: 190px;
+	height:300px;
+    border: 2px black;
+    padding-right:5px;
+    margin-top:3px;
+	margin-left:2px;
+	margin-right:12px;
+	color:black;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+	<div class="header" >
+	    <div class="container1">
+
+			<div class='logo'>
+				WELCOME <font size='6'>{{uname}}</font>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout" style="text-decoration:none"><font size='5'>Logout</font></a>
+			</div>
+	
+			<div class="search">
+				<form action="/action_page_user{{id_u}}" method='POST'>
+					<input type="textarea" placeholder="Search.." name="search2">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="space"></div>
+
+
+	<div class='container2'>
+		<h2> RECENTLY ARRIVED </h2> 
+		<div class='part'>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+		</div>
+		<h2> POPULAR BOOKS </h2>
+		<div class='part'>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+			<div class='block'>
+			</div>
+
+		</div>
+		<h2> OUR RECOMMENDATION </h2>
+		<div class='part'>
+			{% for result in p_books %}
+			<div class='block'>
+				<br>
+				
+				<a href="/book_description{{result[0]}}{{id_u}}{{uname}}" style="text-decoration:none;color:black"><font size="3"><center><bgcolor="blue">{{ result[1] }}</center></font></a>
+			<br>
+			&nbsp;<img src="/static/{{result[1]}}.jpg" alt="Mountain View" style="width:185px;height:220px;">
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,205 @@
+<html>
+
+<head>
+<title>  </title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{
+      margin:0px;
+      width:100%;
+	  background-color:white;
+}
+.header{
+        width:100%;
+		background:#483d8b;
+		height:auto;
+		position:fixed;
+		
+}
+.container1{
+            width:80%;
+		   margin-left:8.5%;
+		   padding-top:20px;
+			
+		   padding-left:20px;
+		   padding-right:20px;
+			
+}
+.logo{
+      float:left;
+	  font-size:35;
+	  color:white;
+	  
+}
+
+
+.link{	
+      float:right;
+	  
+}
+td{
+   padding-right:20px;
+   background:green;
+   
+   
+   
+}
+a{color:white; decoration:none;}
+.search{
+         margin-top:80px;
+		 margin-left:180px;
+		 padding-bottom:20px;
+		 
+}
+input[type=textarea]{
+                     width:70%;
+					 height:40px;
+					 font-size:20;
+					 padding-right:20px;
+}
+input[type=submit]{
+                   width:15%;
+				   height:40px;
+				   font-size:18px;
+				   background:orange;
+				   color:white;
+}
+#space{
+width:100%;
+height:180px;
+background:white;
+}
+
+
+
+
+
+.headerspace{
+	width:100%;
+	height:20px;
+	background:white;
+}
+
+.result{
+        width:100%;
+		min-height:450px;
+		margin:0 0;
+		background:white;
+		padding-top:10px;
+		padding-bottom:10px;
+}
+
+.show{
+      width:80%;
+	  padding-top:20px;
+	  padding-left:20px;
+	  background:#ADD8E6;
+	  margin-left:8.5%;
+	  height:auto;
+	  padding-right:20px;
+	  padding-bottom:20px;
+	  
+}
+.box{
+	  width:200px;
+	  height:400px;
+	  background:green;
+	  padding-left:20px;
+	  padding-top:20px;
+	  padding-bottom:20px;
+	  
+}
+
+
+
+
+
+.footer{
+         width:100%;
+		 height:auto;
+		 background-color:black;
+		 color:white;	 
+}
+.container3{
+            width:80%;
+			background:black;
+			margin-left:9%;
+			padding-left:20px;
+			padding-top:10px;
+			padding-bottom:20px;
+			height:250px;
+}
+
+.section{
+         float:left;
+		 width:220px;
+		 margin-left:30px;
+		 margin-right:70px;
+		 padding-left:20px;
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+	<div class="header" >
+	    <div class="container1">
+
+			<div class='logo'>
+				WELCOME <font size='6'>{{uname}}</font>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout" style="text-decoration:none"><font size='5'>Logout</font></a>
+			</div>
+	
+			<div class="search">
+				<form action="/action_page_user{{id_u}}" method='POST'>
+					<input type="textarea" placeholder="Search.." name="search2">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="space"></div>
+
+
+
+<div class="result">
+	<div class="show">
+
+			<table border="2" width="80%" align="center" height="50px" >
+				<tr>
+				    <th><h2>Book Name</h2></th>
+				    <th><h2>Author</h2></th> 
+					<th><h2>Type</h2></th> 
+				</tr>
+
+				{% for result in results %}
+				<tr>
+					<td style="padding-left:20px" height="30px" width="60%">  <a href="/login" style="text-decoration:None;">{{result[0][1]}}</a> </td>
+					<td style="padding-left:20px" width="22%">  {{result[0][2]}} </td>
+					<td style="padding-left:20px">  {{result[0][3]}} </td>
+				</tr>
+				{% endfor %}	
+			</table>
+
+	</div>
+</div>
+
+
+
+
+</body>
+
+</html>
+
